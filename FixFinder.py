@@ -9,3 +9,5 @@ if __name__ == "__main__":
 
 git add FixFinder.py
 git commit -m "Initial commit"
+
+TEST 3
