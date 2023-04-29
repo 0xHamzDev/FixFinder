@@ -42,9 +42,9 @@ def main():
             except socket.gaierror:
                 print(f"Error: '{target}' is not a valid IP address or domain name")
                 exit()
-        print(f"Validated targets: {targets}")
+    print(f"Validated targets: {targets}")
 
-        print("Input validation successful")
+    print("Input validation successful")
 
     # Scan hosts
     scan_results = []
