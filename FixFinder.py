@@ -25,7 +25,7 @@ print(f"Severity: {args.sev}")
 print(f"Local: {args.local}")
     
     # Use local IP address if -local flag is provided
-if args.local:
+    if args.local:
         local_ip = socket.gethostbyname(socket.gethostname())
         print(f"Scanning {local_ip}...")
         args.targets = [local_ip]
