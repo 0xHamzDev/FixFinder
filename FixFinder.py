@@ -19,10 +19,6 @@ def main():
     
     print("Command line arguments parsed successfully")
     
-print(f"Targets: {args.targets}")
-print(f"Ports: {args.ports}")
-print(f"Severity: {args.sev}")
-print(f"Local: {args.local}")
     
     # Use local IP address if -local flag is provided
     if args.local:
@@ -46,9 +42,9 @@ print(f"Local: {args.local}")
             except socket.gaierror:
                 print(f"Error: '{target}' is not a valid IP address or domain name")
                 exit()
-print(f"Validated targets: {targets}")
+        print(f"Validated targets: {targets}")
 
-print("Input validation successful")
+            print("Input validation successful")
 
     # Scan hosts
     scan_results = []
@@ -69,12 +65,12 @@ print("Input validation successful")
         # Add result to scan results list
         scan_results.append(result)
         
-print("Scanning complete")
+            print("Scanning complete")
 
     # Generate report
     generate_report(scan_results)
 
-print("Report generated successfully")
+        print("Report generated successfully")
 
 
 def scan_open_ports(target, port_range):
