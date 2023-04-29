@@ -272,3 +272,24 @@ from FixFinder import main
 
 if __name__ == "__main__":
     main()
+
+    def generate_report(scan_results):
+    for result in scan_results:
+        print(f"Results for {result['target']}:")
+        print(f"  Open ports: {result['open_ports']}")
+        print(f"  Vulnerabilities:")
+        for vulnerability in result['vulnerabilities']:
+            if vulnerability['severity'] == args.sev:
+                print(f"    - Name: {vulnerability['name']}")
+                print(f"      Severity: {vulnerability['severity']}")
+                print(f"      Description: {vulnerability['description']}")
+                print(f"      Solution: {vulnerability['solution']}")
+                print(f"      References: {', '.join(vulnerability['references'])}")
+        print(f"  Misconfigurations:")
+        for misconfiguration in result['misconfigurations']:
+            if misconfiguration['severity'] == args.sev:
+                print(f"    - Name: {misconfiguration['name']}")
+                print(f"      Severity: {misconfiguration['severity']}")
+                print(f"      Description: {misconfiguration['description']}")
+                print(f"      Solution: {misconfiguration['solution']}")
+                print(f"      References: {', '.join(misconfiguration['references'])}")
