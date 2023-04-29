@@ -17,6 +17,13 @@ def main():
                         help="Automatically use local IP address for the scan")
     args = parser.parse_args()
     
+    print("Command line arguments parsed successfully")
+    
+print(f"Targets: {args.targets}")
+print(f"Ports: {args.ports}")
+print(f"Severity: {args.sev}")
+print(f"Local: {args.local}")
+    
     # Use local IP address if -local flag is provided
     if args.local:
         local_ip = socket.gethostbyname(socket.gethostname())
@@ -39,25 +46,35 @@ def main():
             except socket.gaierror:
                 print(f"Error: '{target}' is not a valid IP address or domain name")
                 exit()
+print(f"Validated targets: {targets}")
+
+print("Input validation successful")
 
     # Scan hosts
     scan_results = []
     for target in targets:
         result = {"target": target}
+        print(f"Scanning {target} for vulnerabilities...")
         # Scan for vulnerabilities
         vulnerabilities = scan_vulnerabilities(target)
         result["vulnerabilities"] = vulnerabilities
+        print(f"Scanning {target} for open ports...")
         # Scan for open ports
         open_ports = scan_open_ports(target, args.ports)
         result["open_ports"] = open_ports
+        print(f"Scanning {target} for misconfigurations...")
         # Scan for misconfigurations
         misconfigurations = scan_misconfigurations(target)
         result["misconfigurations"] = misconfigurations
         # Add result to scan results list
         scan_results.append(result)
+        
+print("Scanning complete")
 
     # Generate report
     generate_report(scan_results)
+
+print("Report generated successfully")
 
 
 def scan_open_ports(target, port_range):
