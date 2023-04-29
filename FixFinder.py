@@ -267,3 +267,8 @@ def scan_with_openvas(target, severity):
             vulnerabilities.append(vuln)
 
     return vulnerabilities
+
+from FixFinder import main
+
+if __name__ == "__main__":
+    main()
