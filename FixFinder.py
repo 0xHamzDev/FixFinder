@@ -44,7 +44,7 @@ def main():
                 exit()
         print(f"Validated targets: {targets}")
 
-            print("Input validation successful")
+        print("Input validation successful")
 
     # Scan hosts
     scan_results = []
@@ -65,12 +65,12 @@ def main():
         # Add result to scan results list
         scan_results.append(result)
         
-            print("Scanning complete")
+        print("Scanning complete")
 
     # Generate report
     generate_report(scan_results)
 
-        print("Report generated successfully")
+    print("Report generated successfully")
 
 
 def scan_open_ports(target, port_range):
